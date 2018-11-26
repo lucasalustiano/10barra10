@@ -15,9 +15,8 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 		
 		/*  I suppose that the parameters passed are valid. Be careful with this.
 		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 */
-		
-		/*  for each i between leftIndex and rightIndex (including them):
+		 *
+		 *  for each i between leftIndex and rightIndex (including them):
 		 * 		smallest = i
 		 * 		for each j between i + 1 and rightIndex (including rightIndex):
 		 * 			if array[smallest] > array[j]:

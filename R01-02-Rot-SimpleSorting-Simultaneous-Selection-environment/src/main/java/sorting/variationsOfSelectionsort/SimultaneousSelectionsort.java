@@ -17,9 +17,8 @@ public class SimultaneousSelectionsort<T extends Comparable<T>> extends Abstract
 		
 		/*  I suppose that the parameters passed are valid. Be careful with this.
 		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 */
-		
-		/*  for each i between leftIndex and rightIndex (including them):
+		 *
+		 *  for each i between leftIndex and rightIndex (including them):
 		 * 		smallest = i
 		 * 		greatest = rightIndex - 1
 		 * 

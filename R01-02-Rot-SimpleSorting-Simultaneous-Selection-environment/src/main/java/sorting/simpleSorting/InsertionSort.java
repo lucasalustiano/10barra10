@@ -16,9 +16,8 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 		
 		/*  I suppose that the parameters passed are valid. Be careful with this.
 		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 */
-		
-		/*  for each element between leftIndex + 1 and rightIndex (including rightIndex):
+		 *
+		 * for each element between leftIndex + 1 and rightIndex (including rightIndex):
 		 * 		while element > 0 and element < element - 1
 		 * 			swap them
 		 * 			decrease element by one

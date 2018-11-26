@@ -16,9 +16,8 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 		
 		/*  I suppose that the parameters passed are valid. Be careful with this.
 		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 */
-		
-		/*  for each element between leftIndex and rightIndex (including them), compare them:
+		 * 
+		 *  for each element between leftIndex and rightIndex (including them), compare them:
 		 * 		if firstElement > secondElement, swap them.
 		 * 	
 		 * 	para cada elemento entre o leftIndex e o rightIndex (incluindo eles), compare-os:
