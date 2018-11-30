@@ -12,27 +12,16 @@ import util.Util;
 public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
-	public void sort(T[] array, int leftIndex, int rightIndex) {
-		
-		/*  I suppose that the parameters passed are valid. Be careful with this.
-		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 *
-		 * for each element between leftIndex + 1 and rightIndex (including rightIndex):
-		 * 		while element > 0 and element < element - 1
-		 * 			swap them
-		 * 			decrease element by one
-		 * 	
-		 * 	para cada elemento entre o leftIndex + 1 e o rightIndex (incluindo rightIndex), compare-os:
-		 * 		enquanto element > 0 e element < element - 1
-		 * 			troque-os
-		 * 			decremente -1 de element
-		 */
-		
-		for (int element = leftIndex + 1; element <= rightIndex; element++) {
-			while (element > 0 && array[element-1].compareTo(array[element]) > 0) {
-				Util.swap(array, element, element-1);
-				element--;
-			}
-		}
-	}
+  	public void sort(T[] array, int leftIndex, int rightIndex) {
+  		if (leftIndex >= 0 && rightIndex < array.length) {
+  			for (int i = leftIndex + 1; i <= rightIndex; i++) {
+  				T key = array[i];
+  				int j = i - 1;
+  				while (j >= leftIndex && array[j].compareTo(key) > 0) {
+  					Util.swap(array, j, j+1);
+  					j--;
+  				}
+  			}
+  		}
+  	}
 }

@@ -10,10 +10,38 @@ import sorting.AbstractSorting;
  */
 public class CountingSort extends AbstractSorting<Integer> {
 
+	// NOTA: 9.7	
+
 	@Override
-	public void sort(Integer[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
-	}
+  	public void sort(Integer[] array, int leftIndex, int rightIndex) {
+  		if (array != null && leftIndex < rightIndex && leftIndex >= 0 && rightIndex < array.length && array.length != 0) {
+  			Integer max = array[leftIndex];
+  		
+  			for(int i = leftIndex + 1; i <= rightIndex; i++) {
+  				if(max < array[i]) {
+  					max = array[i];
+  				}
+  			}
+  			
+  			int[] countingArray = new int[max + 1];
+  			
+  			for(int i = leftIndex; i <= rightIndex; i++) {
+  				countingArray[array[i]]++;
+  			}
+  		
+  			int indexArray = leftIndex;
+  		
+  			for(int i = 0; i < countingArray.length; i++) {
+  			
+  				while(countingArray[i] != 0) {
+  					array[indexArray] = i;
+  					indexArray++;
+  					countingArray[i]--;
+  				}
+  			
+  			}
+  		}
+  		
+  	}
 
 }

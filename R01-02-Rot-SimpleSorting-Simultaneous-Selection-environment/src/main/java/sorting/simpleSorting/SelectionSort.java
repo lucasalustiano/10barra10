@@ -11,34 +11,19 @@ import util.Util;
 public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
-	public void sort(T[] array, int leftIndex, int rightIndex) {
-		
-		/*  I suppose that the parameters passed are valid. Be careful with this.
-		 *  Eu suponho que os parametros passados sao validos. Tenha cuidado com isso. 
-		 *
-		 *  for each i between leftIndex and rightIndex (including them):
-		 * 		smallest = i
-		 * 		for each j between i + 1 and rightIndex (including rightIndex):
-		 * 			if array[smallest] > array[j]:
-		 * 				smallest = j
-		 * 		swap array[i] and array[smallest]
-		 * 	
-		 * 	para cada i entre o leftIndex e o rightIndex (incluindo rightIndex):
-		 * 		menor = i
-		 * 		para cada j entre i + 1 e rightIndex (incluindo rightIndex):
-		 * 			se array[menor] > array[j]:
-		 * 				menor = j
-		 * 		swap array[i] e array[menor]
-		 */
-		
-		for (int i = leftIndex; i <= rightIndex; i++) {
-			int smallest = i;
-			for (int j = i + 1; j <= rightIndex; j++) {
-				if (array[smallest].compareTo(array[j]) > 0) {
-					smallest = j;
-				}
-			}
-			Util.swap(array, i, smallest);
-		}
-	}
+  	public void sort(T[] array, int leftIndex, int rightIndex) {
+  		if (leftIndex >= 0 && rightIndex < array.length) {
+  			for (int i = leftIndex; i <= rightIndex; i++) {
+  				int minIndex = i;
+  				for (int j = i; j <= rightIndex; j++) {
+  					if(array[j].compareTo(array[minIndex]) < 0 ) {
+  						minIndex = j;
+  					}
+  		
+  				}
+  				Util.swap(array, minIndex, i);
+  			}
+  		}	
+  	}
+
 }
