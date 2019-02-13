@@ -1,96 +1,80 @@
 package adt.hashtable.open;
-
+   
 import adt.hashtable.hashfunction.HashFunctionClosedAddressMethod;
 import adt.hashtable.hashfunction.HashFunctionLinearProbing;
-
-public class HashtableOpenAddressLinearProbingImpl<T extends Storable> extends
-           AbstractHashtableOpenAddress<T> {
    
-      public HashtableOpenAddressLinearProbingImpl(int size,
-                                                   HashFunctionClosedAddressMethod method) {
-          super(size);
-          hashFunction = new HashFunctionLinearProbing<T>(size, method);
-          this.initiateInternalTable(size);
-      }
+public class HashtableOpenAddressLinearProbingImpl<T extends Storable> extends
+       AbstractHashtableOpenAddress<T> {
+   
+     public HashtableOpenAddressLinearProbingImpl(int size,
+        HashFunctionClosedAddressMethod method) {
+      super(size);
+      hashFunction = new HashFunctionLinearProbing<T>(size, method);
+      this.initiateInternalTable(size);
+    }
   
-      @Override
-      public void insert(T element) {
-          if (this.isFull()) {
-              throw new HashtableOverflowException();
+    @Override
+    public void insert(T element) {
+      
+      if(isFull()) throw new HashtableOverflowException();
+      
+      if(search(element) == null) {
+        int i = 0,
+          j = 0;
+        while(i < capacity()) {
+          j = hash(element, i);
+          if(table[j] == null || table[j] instanceof DELETED) {
+            table[j] = element;
+            elements++;
+            break;
+          }else {
+            COLLISIONS++;
+            i++;
           }
-          if (element != null && this.search(element) == null) {
-              int index = 0;
-              int indexHash = getHashIndex(element, index);
-  
-              while (index < this.capacity()) {
-                  if (this.table[indexHash] == null || deletedElement.equals(table[indexHash])) {
-                      this.table[indexHash] = element;
-                      elements++;
-                      break;
-                  } else {
-                      index++;
-                      indexHash = getHashIndex(element, index);
-                      COLLISIONS++;
-                  }
-              }
-          }
+        }
       }
+    }
   
-  
-      @Override
-      public void remove(T element) {
-          if (element != null && !this.isEmpty()) {
-              int indexHash = this.indexOf(element);
-              if (indexHash != -1) {
-                  this.table[indexHash] = deletedElement;
-                  elements--;
-              }
-          }
+    @Override
+    public void remove(T element) {
+      int index = indexOf(element);
+      if(index > -1) {
+        table[index] = new DELETED();
+        elements--;
       }
+    }
   
-      @Override
-      public T search(T element) {
-          T result = null;
-          if (element != null && !this.isEmpty()) {
-              int index = 0;
-              int indexHash = getHashIndex(element, index);
-              while (index < this.capacity() && this.table[indexHash] != null) {
-                  if (this.table[indexHash].equals(element)) {
-                      result = (T) this.table[indexHash];
-                      break;
-                  } else {
-                      index++;
-                      indexHash = getHashIndex(element, index);
-                  }
-              }
-          }
-          return result;
+    @Override
+    public T search(T element) {
+      T result = null;
+      if(indexOf(element) > -1) result = element;
+      return result;
+    }
+  
+    @Override
+    public int indexOf(T element) {
+      int result = -1;
+      if(element != null) {
+        int i = 0,
+          j = 0;
+        while(i < capacity()) {
+          j = hash(element, i);
+          if(table[j] == null) break;
+          if(table[j].equals(element)) {
+            result = j;
+            break;
+          }i++;
+        }
       }
+      return result;
+    }
+    
+    /**
+     * Auxiliary method made for the purpose of making the code more readable
+     * and clean.
+     */
+    private int hash(T element, int probe) {
+      return ((HashFunctionLinearProbing<T>) hashFunction).hash(element, probe);
+    }
   
-      @Override
-      public int indexOf(T element) {
-          int result = -1;
-          if (element != null && !this.isEmpty()) {
-              int index = 0;
-              int indexHash = getHashIndex(element, index);
-              while (index < this.capacity() && this.table[indexHash] != null) {
-                  if (this.table[indexHash].equals(element)) {
-                      result = indexHash;
-                      break;
-                  } else {
-                      index++;
-                      indexHash = getHashIndex(element, index);
-                  }
-              }
-  
-          }
-          return result;
-      }
-  
-      @SuppressWarnings("unchecked")
-	private int getHashIndex(T element, int i) {
-          int hashIndex = ((HashFunctionOpenAddress<T>) getHashFunction()).hash(element, i);
-          return hashIndex;
-      }
-
-}
+  }
