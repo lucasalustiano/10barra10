@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +21,7 @@ public class StudentQueueTest {
 		// Fila com 3 elementos não cheia.
 		queue1.enqueue(1);
 		queue1.enqueue(2);
-		queue1.enqueue(0);
+		queue1.enqueue(3);
 
 		// Fila com 2 elementos de tamanho 2. Fila cheia.
 		queue2.enqueue(1);
@@ -32,9 +31,9 @@ public class StudentQueueTest {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		queue1 = new QueueImpl<>(4);
-		queue2 = new QueueImpl<>(2);
-		queue3 = new QueueImpl<>(10);
+		queue1 = new QueueUsingStack(4);
+		queue2 = new QueueUsingStack<>(2);
+		queue3 = new QueueUsingStack<>(5);
 	}
 
 	// MÉTODOS DE TESTE

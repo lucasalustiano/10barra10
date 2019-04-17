@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-04-15T16:24:23.579-0300</date>
+  <logger>LUCAS CHAVES SALUSTIANO</logger>
+  <level>FINE</level>
+  <message>File 117110734-LUCAS CHAVES SALUSTIANO.zip was received. It was sent by LUCAS CHAVES SALUSTIANO from IP 150.165.42.101</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-04-15T17:32:56.120-0300</date>
+  <logger>LUCAS CHAVES SALUSTIANO</logger>
+  <level>FINE</level>
+  <message>File 117110734-LUCAS CHAVES SALUSTIANO.zip was received. It was sent by LUCAS CHAVES SALUSTIANO from IP 150.165.42.101</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-04-17T15:10:31.343-0300</date>
+  <logger>LUCAS CHAVES SALUSTIANO</logger>
+  <level>FINE</level>
+  <message>File 117110734-LUCAS CHAVES SALUSTIANO.zip was received. It was sent by LUCAS CHAVES SALUSTIANO from IP 150.165.74.133</message>
+</record>

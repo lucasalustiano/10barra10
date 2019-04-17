@@ -34,7 +34,7 @@ public class StudentStackTest {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
 		stack1 = new StackImpl<>(4);
 		stack2 = new StackImpl<>(2);
-		stack3 = new StackImpl<>(410);
+		stack3 = new StackImpl<>(5);
 	}
 
 	// MÉTODOS DE TESTE
@@ -66,7 +66,7 @@ public class StudentStackTest {
 
 	@Test(expected = StackOverflowException.class)
 	public void testPushComErro() throws StackOverflowException {
-		stack2.push(new Integer(5)); // levanta excecao apenas se o tamanho nao
+		stack2.push(new Integer(5)); // levanta excecao apenas se o tamanhonao
 										// permitir outra insercao
 	}
 
