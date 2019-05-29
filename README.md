@@ -1,2 +1,3 @@
-# LEDA---Algorithm-and-Data-Structures-Laboratory
-Repositório das atividades de implementação de estruturas de dados em Java
+# IMPLEMENTAÇÃO DOS ROTEIRO DE LEDA
+
+Num só copie essa bixiga não, tenta entender também caramba!!
